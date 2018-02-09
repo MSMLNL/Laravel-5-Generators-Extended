@@ -1,6 +1,6 @@
 <?php
 
-namespace Laracasts\Generators\Migrations;
+namespace MSML\Generators\Migrations;
 
 class SchemaParser
 {

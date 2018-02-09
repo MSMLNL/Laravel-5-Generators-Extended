@@ -1,6 +1,6 @@
 <?php
 
-namespace Laracasts\Generators\Commands;
+namespace MSML\Generators\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;

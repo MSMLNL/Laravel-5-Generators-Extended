@@ -1,13 +1,13 @@
 <?php
 
-namespace Laracasts\Generators\Commands;
+namespace MSML\Generators\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
-use Laracasts\Generators\Migrations\NameParser;
-use Laracasts\Generators\Migrations\SchemaParser;
-use Laracasts\Generators\Migrations\SyntaxBuilder;
+use MSML\Generators\Migrations\NameParser;
+use MSML\Generators\Migrations\SchemaParser;
+use MSML\Generators\Migrations\SyntaxBuilder;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 

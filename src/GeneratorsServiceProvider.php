@@ -1,6 +1,6 @@
 <?php
 
-namespace Laracasts\Generators;
+namespace MSML\Generators;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -34,7 +34,7 @@ class GeneratorsServiceProvider extends ServiceProvider
     private function registerSeedGenerator()
     {
         $this->app->singleton('command.laracasts.seed', function ($app) {
-            return $app['Laracasts\Generators\Commands\SeedMakeCommand'];
+            return $app['MSML\Generators\Commands\SeedMakeCommand'];
         });
 
         $this->commands('command.laracasts.seed');
@@ -46,7 +46,7 @@ class GeneratorsServiceProvider extends ServiceProvider
     private function registerMigrationGenerator()
     {
         $this->app->singleton('command.laracasts.migrate', function ($app) {
-            return $app['Laracasts\Generators\Commands\MigrationMakeCommand'];
+            return $app['MSML\Generators\Commands\MigrationMakeCommand'];
         });
 
         $this->commands('command.laracasts.migrate');
@@ -58,7 +58,7 @@ class GeneratorsServiceProvider extends ServiceProvider
     private function registerPivotMigrationGenerator()
     {
         $this->app->singleton('command.laracasts.migrate.pivot', function ($app) {
-            return $app['Laracasts\Generators\Commands\PivotMigrationMakeCommand'];
+            return $app['MSML\Generators\Commands\PivotMigrationMakeCommand'];
         });
 
         $this->commands('command.laracasts.migrate.pivot');

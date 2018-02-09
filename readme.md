@@ -42,7 +42,7 @@ You'll only want to use these generators for local development, so you don't wan
 public function register()
 {
 	if ($this->app->environment() == 'local') {
-		$this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
+		$this->app->register('MSML\Generators\GeneratorsServiceProvider');
 	}
 }
 ```

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Laracasts\Generators\Migrations;
+namespace spec\MSML\Generators\Migrations;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class SchemaParserSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Laracasts\Generators\Migrations\SchemaParser');
+        $this->shouldHaveType('MSML\Generators\Migrations\SchemaParser');
     }
 
     function it_parses_a_basic_string_schema()

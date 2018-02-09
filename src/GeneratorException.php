@@ -1,6 +1,6 @@
 <?php
 
-namespace Laracasts\Generators;
+namespace MSML\Generators;
 
 class GeneratorException extends \Exception
 {

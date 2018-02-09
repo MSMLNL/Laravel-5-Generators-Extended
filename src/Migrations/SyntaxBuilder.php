@@ -1,8 +1,8 @@
 <?php
 
-namespace Laracasts\Generators\Migrations;
+namespace MSML\Generators\Migrations;
 
-use Laracasts\Generators\GeneratorException;
+use MSML\Generators\GeneratorException;
 
 class SyntaxBuilder
 {
