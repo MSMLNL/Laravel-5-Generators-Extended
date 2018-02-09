@@ -1,4 +1,4 @@
-# Laravel 5 Extended Generators
+# Fork Laravel (Extended) Generators
 
 [![Build Status](https://travis-ci.org/laracasts/Laravel-5-Generators-Extended.svg?branch=master)](https://travis-ci.org/laracasts/Laravel-5-Generators-Extended)
 
