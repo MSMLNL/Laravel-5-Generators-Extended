@@ -4,7 +4,6 @@ namespace MSML\Generators\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 
 class PivotMigrationMakeCommand extends GeneratorCommand
 {
@@ -39,15 +38,17 @@ class PivotMigrationMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Parse the name and format.
+     * Get the class name from table names.
      *
-     * @param  string $name
      * @return string
      */
-    protected function parseName($name)
+    protected function getClassName()
     {
-        $tables = array_map('str_singular', $this->getSortedTableNames());
-        $name = implode('', array_map('ucwords', $tables));
+        $name = implode('', array_map('ucwords', $this->getSortedTableNames()));
+
+        $name = preg_replace_callback('/(\_)([a-z]{1})/', function ($matches) {
+            return studly_case($matches[0]);
+        }, $name);
 
         return "Create{$name}PivotTable";
     }
@@ -71,7 +72,7 @@ class PivotMigrationMakeCommand extends GeneratorCommand
     protected function getPath($name = null)
     {
         return base_path() . '/database/migrations/' . date('Y_m_d_His') .
-        '_create_' . $this->getPivotTableName() . '_pivot_table.php';
+            '_create_' . $this->getPivotTableName() . '_pivot_table.php';
     }
 
     /**
@@ -86,7 +87,7 @@ class PivotMigrationMakeCommand extends GeneratorCommand
 
         return $this->replacePivotTableName($stub)
             ->replaceSchema($stub)
-            ->replaceClass($stub, $name);
+            ->replaceClass($stub, $this->getClassName());
     }
 
     /**
@@ -114,18 +115,18 @@ class PivotMigrationMakeCommand extends GeneratorCommand
 
         $stub = str_replace(
             ['{{columnOne}}', '{{columnTwo}}', '{{tableOne}}', '{{tableTwo}}'],
-            array_merge(array_map('str_singular', $tables), $tables),
+            $tables,
             $stub
         );
 
         return $this;
     }
-    
+
     /**
      * Replace the class name for the given stub.
      *
-     * @param  string  $stub
-     * @param  string  $name
+     * @param  string $stub
+     * @param  string $name
      * @return string
      */
     protected function replaceClass($stub, $name)
@@ -142,7 +143,7 @@ class PivotMigrationMakeCommand extends GeneratorCommand
      */
     protected function getPivotTableName()
     {
-        return implode('_', array_map('str_singular', $this->getSortedTableNames()));
+        return implode('_', $this->getSortedTableNames());
     }
 
     /**
@@ -156,6 +157,8 @@ class PivotMigrationMakeCommand extends GeneratorCommand
             strtolower($this->argument('tableOne')),
             strtolower($this->argument('tableTwo'))
         ];
+
+        $tables = array_map('str_singular', $tables);
 
         sort($tables);
 
