@@ -3,7 +3,6 @@
 namespace spec\MSML\Generators\Migrations;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class SchemaParserSpec extends ObjectBehavior
 {
