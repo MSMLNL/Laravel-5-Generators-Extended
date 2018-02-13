@@ -28,7 +28,7 @@
   "extra": {
       "laravel": {
           "providers": [
-              "Laracasts\\Generators\\GeneratorsServiceProvider"
+              "MSML\\Generators\\GeneratorsServiceProvider"
           ]
       }
   }

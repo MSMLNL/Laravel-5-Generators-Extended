@@ -18,7 +18,7 @@ L5 includes a bunch of generators out of the box, so this package only needs to 
 ### Step 1: Install Through Composer
 
 ```
-composer require laracasts/generators --dev
+composer require msml/generators --dev
 ```
 
 ### Step 2: Run Artisan!
@@ -31,7 +31,7 @@ You're all set. Run `php artisan` from the console, and you'll see the new comma
 ### Step 1: Install Through Composer
 
 ```
-composer require laracasts/generators --dev
+composer require msml/generators --dev
 ```
 
 ### Step 2: Add the Service Provider
